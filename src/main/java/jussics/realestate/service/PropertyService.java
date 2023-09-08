@@ -23,8 +23,13 @@ public class PropertyService {
         return propertyRepo.findAll();
     }
     public Property updateProperty(Property property){
-        System.out.println("stop");
-        return propertyRepo.save(property);
+        Property prop = propertyRepo.findById(property.getId()).orElseThrow();
+        prop.setAddress(property.getAddress());
+        prop.setDescription(property.getDescription());
+        prop.setDistrict(property.getDistrict());
+        prop.setNumber(property.getNumber());
+        prop.setPostalCode(property.getPostalCode());
+        return propertyRepo.save(prop);
     }
     public Property findPropertyById(Long id){
         return propertyRepo.findPropertyById(id)
