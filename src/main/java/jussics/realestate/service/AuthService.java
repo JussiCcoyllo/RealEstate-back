@@ -15,7 +15,7 @@ public class AuthService {
     private UserRepo userRepo;
 
     private static final SecureRandom secureRandom = new SecureRandom();
-    private static final Base64.Encoder base64enocder = Base64.getUrlEncoder();
+    private static final Base64.Encoder base64encoder = Base64.getUrlEncoder();
 
 
     public User register(User user) {
@@ -33,12 +33,13 @@ public class AuthService {
 
         byte[] token = new byte[24];
         secureRandom.nextBytes(token);
-        return base64enocder.encodeToString(token);
+        return base64encoder.encodeToString(token);
 
     }
 
     private boolean checkUserExist(User user) {
-        User existingUser = userRepo.findById(user.getUsername()).orElse(null);
+	if(user.getId() == null) return false;
+        User existingUser = userRepo.findById(user.getId()).orElse(null);
 
         if(existingUser == null)
             return false;
@@ -46,7 +47,7 @@ public class AuthService {
     }
 
     public User login(User user) {
-        User existingUser = userRepo.findById(user.getUsername()).orElse(null);
+        User existingUser = userRepo.findById(user.getId()).orElse(null);
 
         if(existingUser.getUsername().equals(user.getUsername()) &&
                 existingUser.getPassword().equals(user.getPassword()) &&
