@@ -2,8 +2,6 @@ package jussics.realestate.resource;
 
 
 import jussics.realestate.model.Issue;
-import jussics.realestate.model.Property;
-import jussics.realestate.repo.IssueRepo;
 import jussics.realestate.service.IssueService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
