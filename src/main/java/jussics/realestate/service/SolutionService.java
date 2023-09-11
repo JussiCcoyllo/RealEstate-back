@@ -19,7 +19,7 @@ public class SolutionService {
     public Solution addSolution(Solution solution){
         return solutionRepo.save(solution);
     }
-    public List<Solution> findAllProperties(){
+    public List<Solution> findAllSolutions(){
         return solutionRepo.findAll();
     }
     public Solution updateSolution(Solution solution){

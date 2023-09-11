@@ -20,9 +20,9 @@ public class SolutionResource {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Solution>> getAllProperties(){
-        List<Solution> properties = solutionService.findAllProperties();
-        return new ResponseEntity<>(properties, HttpStatus.OK);
+    public ResponseEntity<List<Solution>> getAllSolutions(){
+        List<Solution> solutions = solutionService.findAllSolutions();
+        return new ResponseEntity<>(solutions, HttpStatus.OK);
     }
 
     @GetMapping("/find/{id}")
