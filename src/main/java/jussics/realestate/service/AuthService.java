@@ -47,16 +47,13 @@ public class AuthService {
     }
 
     public User login(User user) {
-        User existingUser = userRepo.findById(user.getId()).orElse(null);
+        User existingUser = userRepo.findByUsername(user.getUsername()).orElse(null);
 
-        if(existingUser.getUsername().equals(user.getUsername()) &&
-                existingUser.getPassword().equals(user.getPassword()) &&
-                existingUser.getRole().equals(user.getRole())) {
+        if(existingUser.getPassword().equals(user.getPassword())) {
             existingUser.setPassword("");
             return existingUser;
         }
 
-        return null;
-
+        throw new RuntimeException("user pwd or name wrong");
     }
 }
