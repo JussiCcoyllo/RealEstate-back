@@ -1,15 +1,11 @@
 package jussics.realestate.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
-import java.util.Date;
+
 
 @Entity
-@Table(name="issueTenant")
+@Table(name="issue_tenant")
 public class Issue implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +16,9 @@ public class Issue implements Serializable {
 
     public Issue(){
     }
+    @ManyToOne
+    private User user;
 
-    public Issue(Long id, String issueName, String issueDate, String issueDescription) {
-        this.id = id;
-        this.issueName = issueName;
-        this.issueDate = issueDate;
-        this.issueDescription = issueDescription;
-    }
 
     public Long getId() {
         return id;

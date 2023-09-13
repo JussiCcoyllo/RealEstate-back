@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,4 +26,10 @@ public class User implements Serializable {
     private String  confirmPassword;
     //private Long  contract;
     private String token;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Issue> issues;
+
 }
+
+

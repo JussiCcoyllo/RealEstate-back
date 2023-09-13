@@ -45,4 +45,8 @@ public class IssueResource {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/get/user/{id}")
+    public List<Issue> getIssuesByUserId(@PathVariable("id") Long id){
+        return issueService.getIssuesByUserId(id);
+    }
 }

@@ -38,5 +38,7 @@ public class IssueService {
         issueRepo.deleteIssueById(id);
     }
 
-
+    public List<Issue> getIssuesByUserId(Long id){
+        return issueRepo.findAllByUser(id);
+    }
 }
