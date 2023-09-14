@@ -24,7 +24,7 @@ public class User implements Serializable {
     private String  role;
     private String  password;
     private String  confirmPassword;
-    //private Long  contract;
+    private Long  contract;
     private String token;
 
     @OneToMany(fetch = FetchType.EAGER)

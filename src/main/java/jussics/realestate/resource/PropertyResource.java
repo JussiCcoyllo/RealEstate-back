@@ -1,5 +1,6 @@
 package jussics.realestate.resource;
 
+import jakarta.transaction.Transactional;
 import jussics.realestate.model.Property;
 import jussics.realestate.service.PropertyService;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Transactional
 //this is the rest service
 @RequestMapping("/property")
 public class PropertyResource {

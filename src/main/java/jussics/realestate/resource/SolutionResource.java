@@ -1,6 +1,7 @@
 package jussics.realestate.resource;
 
 
+import jakarta.transaction.Transactional;
 import jussics.realestate.model.Solution;
 import jussics.realestate.service.SolutionService;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Transactional
 //this is the rest service
 @RequestMapping("/solution")
 public class SolutionResource {
